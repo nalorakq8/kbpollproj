@@ -1,9 +1,12 @@
+#-*- coding: utf -8 -*-
 from django.db import models
 
 class Poll(models.Model):
 	name = models. CharField ("poll name", max_length =64)
 	category = models. CharField ("poll category", max_length =64)
 	question = models. TextField (blank=True)
+	def __unicode__(self):
+		return u"{}: {}".format(self.name , self.category)
 class Choice(models.Model):
 	poll = models. ForeignKey (Poll , verbose_name ="poll question")
 	label = models. CharField ("answer choice", max_length =200)
