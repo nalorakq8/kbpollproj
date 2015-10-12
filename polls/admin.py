@@ -7,8 +7,12 @@ class PollAdmin (admin. ModelAdmin ):
 	inlines = [ChoiceInline,]
 
 admin.site.register(Poll , PollAdmin)
-admin.site.register(Choice)
+class ChoiceAdmin (admin. ModelAdmin ):
+	list_display = ("label" , "poll_name")
+
+admin.site.register(Choice , ChoiceAdmin)
+
 class ResponseAdmin (admin. ModelAdmin ):
-	list_display = ('poll_name', 'choice_label', 'comment')
+	list_display = ('poll_name',"poll_category" , 'choice_label', 'comment')
 admin.site.register(Response , ResponseAdmin)
 # Register your models here.

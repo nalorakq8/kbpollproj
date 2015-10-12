@@ -14,6 +14,10 @@ class Choice(models.Model):
 	label = models. CharField ("answer choice", max_length =200)
 	created_at = models. DateTimeField ( auto_now_add =True)
 	updated_at = models. DateTimeField ("last updated", auto_now=True)
+	def poll_name(self):
+		return self.poll.name
+	
+
 class Response(models.Model):
 	choice = models. ForeignKey (Choice , null=True , blank=True)
 	comment = models. TextField (blank=True)
@@ -22,3 +26,5 @@ class Response(models.Model):
 		return self.choice.poll.name
 	def choice_label(self):
 		return self.choice.label
+	def poll_category(self):
+		return self.choice.poll.category
