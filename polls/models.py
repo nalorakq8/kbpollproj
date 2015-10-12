@@ -7,6 +7,8 @@ class Poll(models.Model):
 	question = models. TextField (blank=True)
 	def __unicode__(self):
 		return u"{}: {}".format(self.name , self.category)
+	def choice_count (self):
+		return self.choice_set.count()
 class Choice(models.Model):
 	poll = models. ForeignKey (Poll , verbose_name ="poll question")
 	label = models. CharField ("answer choice", max_length =200)
@@ -16,3 +18,7 @@ class Response(models.Model):
 	choice = models. ForeignKey (Choice , null=True , blank=True)
 	comment = models. TextField (blank=True)
 	submitted_at = models. DateTimeField ( auto_now_add =True)
+	def poll_name(self):
+		return self.choice.poll.name
+	def choice_label(self):
+		return self.choice.label
