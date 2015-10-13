@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Poll , Choice , Response
-class ChoiceInline(admin.TabularInline):
+class ChoiceInline(admin.StackedInline):
 	model = Choice
 class PollAdmin (admin. ModelAdmin ):
 	list_display = ('name' ,'category', 'question' , "choice_count")
