@@ -4,6 +4,7 @@ class ChoiceInline(admin.TabularInline):
 	model = Choice
 class PollAdmin (admin. ModelAdmin ):
 	list_display = ('name' ,'category', 'question' , "choice_count")
+	list_filter = ("category",)
 	inlines = [ChoiceInline,]
 
 admin.site.register(Poll , PollAdmin)
