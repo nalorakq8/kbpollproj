@@ -16,6 +16,8 @@ class Poll(models.Model):
 		return u"{}: {}".format(self.name , self.category)
 	def choice_count (self):
 		return self.choice_set.count()
+	#challenge 1.5 part 7
+	#becuase we didnt create new class we created a method and method dont need to be migrated in orded for it to be functional
 class Choice(models.Model):
 	poll = models. ForeignKey (Poll , verbose_name ="poll question")
 	label = models. CharField ("answer choice", max_length =200)
