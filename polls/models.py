@@ -6,6 +6,8 @@ class Poll(models.Model):
 		("Sports","Sports"),
 		("Politics","Politics"),
 		("Demographic","Demographic"),
+		("Academics" , "Academics"),
+		("Travel" , "Travel")
 		)
 	name = models. CharField ("poll name", max_length =64 )
 	category = models. CharField ("poll category", max_length =64, choices = category_choices)
