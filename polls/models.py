@@ -2,8 +2,13 @@
 from django.db import models
 
 class Poll(models.Model):
-	name = models. CharField ("poll name", max_length =64)
-	category = models. CharField ("poll category", max_length =64)
+	category_choices = (
+		("Sports","Sports"),
+		("Politics","Politics"),
+		("Demographic","Demographic"),
+		)
+	name = models. CharField ("poll name", max_length =64 )
+	category = models. CharField ("poll category", max_length =64, choices = category_choices)
 	question = models. TextField (blank=True)
 	def __unicode__(self):
 		return u"{}: {}".format(self.name , self.category)
