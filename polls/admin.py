@@ -2,11 +2,13 @@ from django.contrib import admin
 from .models import Poll , Choice , Response
 class ChoiceInline(admin.StackedInline):
 	model = Choice
+class ResponseInline(admin.TabularInline):
+	model = Response
 class PollAdmin (admin. ModelAdmin ):
 	list_display = ('name' ,'category', 'question' , "choice_count")
 	list_filter = ("category",)
 	search_fields = ["name", "question"]
-	inlines = [ChoiceInline,]
+	inlines = [ChoiceInline,ResponseInline,]
 
 admin.site.register(Poll , PollAdmin)
 class ChoiceAdmin (admin. ModelAdmin ):
