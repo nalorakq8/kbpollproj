@@ -9,7 +9,7 @@ class PollAdmin (admin. ModelAdmin ):
 admin.site.register(Poll , PollAdmin)
 class ChoiceAdmin (admin. ModelAdmin ):
 	list_display = ("label" , "poll_name")
-
+	raw_id_fields = ('poll', )
 admin.site.register(Choice , ChoiceAdmin)
 
 class ResponseAdmin (admin. ModelAdmin ):
