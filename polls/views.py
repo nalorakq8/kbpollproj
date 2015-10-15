@@ -1,16 +1,16 @@
 from django.shortcuts import render
 from django.http import Http404
 from .models import Poll
+from django.shortcuts import get_list_or_404, get_object_or_404
 
 
 def poll_list(request):
-	# construct a queryset
-	qs = Poll.objects.all()
+	
+	qs = get_list_or_404(Poll)
 	return render(request , "poll_list.html" , {"polls" : qs})
 def poll_details (request , poll_id):
-	try:
-		poll = Poll.objects.get(pk=poll_id)
-	except Poll. DoesNotExist :
-		raise Http404
-	return render(request , "poll_details.html", {"poll": poll })
+	
+	poll = get_object_or_404(Poll , pk=poll_id)
+	
+	return render(request , "poll_details.html", {"polls": poll })
 
