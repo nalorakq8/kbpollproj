@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ poll.question }}</h1>
+<ul class="list -group">
+
+	{% for c in polls.choice_set.all %}
+		<li class="list -group -item">
+			{{ c.label }} 
+		</li>
+	{% empty %}
+	<li>
+		<h2>
+			No Polls Available
+		</h2>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}
