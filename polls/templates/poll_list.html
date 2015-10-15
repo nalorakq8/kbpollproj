@@ -12,8 +12,9 @@
 	<span class="badge">
 	{{ p.category }}
 	</span>
-	<h4 class="list -group -item -heading">{{ p.name }}</h4>
+	<h4 class="list -group -item -heading">{{ p.name|truncatechars:10 }}</h4>
 	<p class="list -group -item -text">{{ p.question }}</p>
+	<p class="list -group -item -text"> Number of available answer choices: {{ p.choice_count }}</p>
 	</a>
 {% empty %}
 
@@ -23,4 +24,7 @@
 	
 {% endfor %}
 </div>
+{% endblock %}
+{% block footer%}
+This is the poll list view
 {% endblock %}

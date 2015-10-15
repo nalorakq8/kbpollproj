@@ -14,3 +14,5 @@ def poll_details (request , poll_id):
 	
 	return render(request , "poll_details.html", {"polls": poll })
 
+# its better to use get_list_or_404 and get_object_or_404 becuase its more efficent and looks better
+# and you dont need to use try to get the expected error
