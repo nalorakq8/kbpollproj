@@ -2,8 +2,15 @@ from django.shortcuts import render
 from django.http import Http404
 from .models import Poll
 from django.shortcuts import get_list_or_404, get_object_or_404
-
-
+from django.views.generic import ListView
+class PollList(ListView):
+	model = Poll
+	template_name = "poll_list.html"
+	context_object_name = "polls"
+class PollDetails(ListView):
+	model = Poll
+	template_name = 'poll_details.html'
+	context_object_name = 'polls'
 def poll_list(request):
 	
 	qs = get_list_or_404(Poll)
