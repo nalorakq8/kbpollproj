@@ -7,6 +7,10 @@ class PollList(ListView):
 	model = Poll
 	template_name = "poll_list.html"
 	context_object_name = "polls"
+	queryset = Poll.objects.filter(category = "Sports")
+	#we can use get_object to return single object the view will display
+	#we can use get_context_data to retunr list of objects
+	
 class PollDetails(ListView):
 	model = Poll
 	template_name = 'poll_details.html'
