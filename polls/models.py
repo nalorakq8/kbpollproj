@@ -12,6 +12,8 @@ class Poll(models.Model):
 	name = models. CharField ("poll name", max_length =64 )
 	category = models. CharField ("poll category", max_length =64, choices = category_choices)
 	question = models. TextField (blank=True)
+	created_at = models. DateTimeField ( auto_now_add =True)
+	updated_at = models. DateTimeField ("last updated", auto_now=True)
 	def __unicode__(self):
 		return u"{}: {}".format(self.name , self.category)
 	def choice_count (self):

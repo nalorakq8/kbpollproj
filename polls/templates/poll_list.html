@@ -8,13 +8,13 @@
 
 {% for p in polls %}
 		
-	<a class="list -group -item" href="{% url 'poll_details' p.pk %}">
-	<span class="badge">
-	{{ p.category }}
-	</span>
-	<h4 class="list -group -item -heading">{{ p.name|truncatechars:10 }}</h4>
-	<p class="list -group -item -text">{{ p.question }}</p>
-	<p class="list -group -item -text"> Number of available answer choices: {{ p.choice_count }}</p>
+	<a class="list-group-item" href="{% url 'poll_details' pk=p.pk %}">
+		<span class="badge">
+		{{ p.category }}
+		</span>
+		<h4 class="list-group-item-heading">{{ p.name|truncatechars:10 }}</h4>
+		<p class="list-group-item-text">{{ p.question }}</p>
+		<p class="list-group-item-text"> Number of available answer choices: {{ p.choice_count }}</p>
 	</a>
 {% empty %}
 
@@ -23,6 +23,8 @@
 	</h2>
 	
 {% endfor %}
+
+
 </div>
 {% endblock %}
 {% block footer%}

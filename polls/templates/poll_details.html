@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ poll.question }}</h1>
-<ul class="list -group">
+<h1>{{ polls.question }}</h1>
+<ul class="list-group">
 	{% for c in polls.choice_set.all %}
-		<li class="list -group -item">
+		<li class="list-group-item">
 
-			{{ c.label }} 
+			{{ c.label | title }} 
 		</li>
 	{% empty %}
 	<li>

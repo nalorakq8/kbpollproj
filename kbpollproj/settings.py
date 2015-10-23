@@ -19,12 +19,12 @@ PROJECT_DIR = Path(__file__).ancestor (1)
 MEDIA_ROOT = PROJECT_DIR .child("media")
 STATIC_ROOT = PROJECT_DIR .child("static")
 STATICFILES_DIRS = ( PROJECT_DIR .child("assets"), )
-TEMPLATE_DIRS = ( PROJECT_DIR .child("templates"), )
+#TEMPLATE_DIRS = ( PROJECT_DIR .child("templates"), )
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': TEMPLATE_DIRS ,
+        'DIRS': ( PROJECT_DIR .child("templates"), ) ,
 
         'APP_DIRS': True,
         'OPTIONS': {
@@ -51,7 +51,7 @@ SECRET_KEY = 'e7_wx8x#-j!ho-lq=w===t=8n-wl_34*qr3x_$+@sx51mp^if&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+#TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 ACCOUNT_LOGOUT_ON_GET = True
@@ -73,6 +73,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.dropbox',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.github',
+    'django_extensions',
 )
 SOCIALACCOUNT_PROVIDERS = \
     {'facebook':
