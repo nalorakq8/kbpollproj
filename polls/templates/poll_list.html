@@ -8,7 +8,7 @@
 
 {% for p in polls %}
 		
-	<a class="list-group-item" href="{% url 'poll_details' pk=p.pk %}">
+	<a class="list-group-item" href="{{ p.get_absolute_url }}">
 		<span class="badge">
 		{{ p.category }}
 		</span>

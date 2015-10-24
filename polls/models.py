@@ -1,6 +1,6 @@
 #-*- coding: utf -8 -*-
 from django.db import models
-
+from django.core.urlresolvers import reverse
 class Poll(models.Model):
 	category_choices = (
 		("Sports","Sports"),
@@ -14,6 +14,8 @@ class Poll(models.Model):
 	question = models. TextField (blank=True)
 	created_at = models. DateTimeField ( auto_now_add =True)
 	updated_at = models. DateTimeField ("last updated", auto_now=True)
+	def get_absolute_url(self):
+		return reverse('poll_details' , kwargs = {"pk" : self.pk})
 	def __unicode__(self):
 		return u"{}: {}".format(self.name , self.category)
 	def choice_count (self):

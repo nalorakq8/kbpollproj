@@ -43,6 +43,7 @@ class duplicate(ListView):
 		new_object.pk = None
 		new_object.save()
 		return HttpResponseRedirect('/polls/poll/%s' %(new_object.pk))
+
 	
 		
 	#we can use get_object to return single object the view will display
