@@ -30,13 +30,7 @@ class duplicate(ListView):
 	model = Poll
 	template_name = "poll_details.html"
 	context_object_name = "polls"
-	#def get_queryset(self):
-		#duplicate_from = self.kwargs['id']
-		#new_object = Poll.objects.get(pk=duplicate_from)
-		#new_object.pk = None
-		#new_object.save()
-		#pk = new_object.pk
-		#return pk
+	
 	def dispatch(self, *args, **kwargs):
 		duplicate_from = self.kwargs['id']
 		new_object = Poll.objects.get(pk=duplicate_from)

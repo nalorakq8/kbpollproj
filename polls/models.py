@@ -49,6 +49,7 @@ class UserProfile(models.Model):
 		('M', "Male"),
 		('F' , "Female"),
 		)
+	
 	user = models.OneToOneField(settings. AUTH_USER_MODEL)	
 	location = models.CharField(max_length =64, blank=True)
 	bio = models.TextField(blank=True)
