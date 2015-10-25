@@ -43,7 +43,8 @@ class Survey(ListView):
 	template_name = "poll_list.html"
 	context_object_name = "polls"
 	#queryset = Survey.objects.filter(questions__choice__label__iexact = 'football')
-	queryset = Survey.objects.filter(questions__choice__isnull = True)
+	#queryset = Survey.objects.filter(questions__choice__isnull = True)
+	queryset = Survey.objects.filter(questions__question__iexact = "")
 		
 	#we can use get_object to return single object the view will display
 	#we can use get_context_data to return list of objects
