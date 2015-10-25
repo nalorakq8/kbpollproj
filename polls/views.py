@@ -1,6 +1,6 @@
 from django.shortcuts import render , redirect
 from django.http import Http404
-from .models import Poll
+from .models import Poll , Survey
 from django.shortcuts import get_list_or_404, get_object_or_404
 from django.views.generic import ListView , DetailView
 from django.db.models import Q
@@ -38,7 +38,12 @@ class duplicate(ListView):
 		new_object.save()
 		return HttpResponseRedirect('/polls/poll/%s' %(new_object.pk))
 
-	
+class Survey(ListView):
+	model = Survey
+	template_name = "poll_list.html"
+	context_object_name = "polls"
+	queryset = Survey.objects.filter(questions__choice__label__iexact = 'football')
+
 		
 	#we can use get_object to return single object the view will display
 	#we can use get_context_data to return list of objects

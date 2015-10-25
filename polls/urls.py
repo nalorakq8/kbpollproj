@@ -9,5 +9,6 @@ urlpatterns = [
 	url(r'^last/' , views.last_updated_polls.as_view() , name = 'last_updated_polls',),
 	url(r'^search/(?P<word>[\w-]+)/$', views.search_word.as_view() , name='search_word',),
 	url(r'^duplicate/(?P<id>[\d+]+)/$', views.duplicate.as_view() , name='duplicate',),
+	url(r'^survey/' , views.Survey.as_view() , name = 'survey',),
 
 ]
