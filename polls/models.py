@@ -1,4 +1,5 @@
 #-*- coding: utf -8 -*-
+#hello yousef
 from django.db import models
 from django.core.urlresolvers import reverse
 class Poll(models.Model):
