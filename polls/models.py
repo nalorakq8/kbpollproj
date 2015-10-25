@@ -1,6 +1,7 @@
 #-*- coding: utf -8 -*-
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.conf import settings
 class Poll(models.Model):
 	category_choices = (
 		("Sports","Sports"),
@@ -42,3 +43,18 @@ class Response(models.Model):
 		return self.choice.label
 	def poll_category(self):
 		return self.choice.poll.category
+class UserProfile(models.Model):
+	GENDER = (
+		('M', "Male"),
+		('F' , "Female"),
+		)
+	user = models.OneToOneField(settings. AUTH_USER_MODEL)	
+	location = models.CharField(max_length =64, blank=True)
+	bio = models.TextField(blank=True)
+	phone = models.CharField( max_length =64, blank=True)
+	gender = models.CharField( max_length =1, blank=True ,choices = GENDER)
+class Survey(models.Model):
+	name = models.CharField(max_length =200)
+	questions = models.ManyToManyField(Poll)
+	created_at = models.DateTimeField(auto_now_add =True)
+	updated_at = models.DateTimeField("last updated", auto_now=True)
